@@ -1,0 +1,75 @@
+<%- include("./partials/upper.ejs") %>
+
+<header>
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt ab corrupti labore expedita itaque cumque quas, minima porro repellat explicabo odio dicta est excepturi! Asperiores ipsa amet voluptatibus totam.</p>
+    </div>  
+</header>
+    
+
+    
+<section class="card">
+        <div class="container">
+            <img src="images/nutritious.jpg" alt="Nutritious food" height="300">
+        </div>
+        
+</section>
+
+<section class="input-form">
+    <div class="container">
+        <form action="/submit" method="post">
+            <!-- <label for="searchItem">Enter your favourite food:</label> -->
+            <input type="text" id="searchItem" name="foodName" placeholder="Enter your favourite food!!">
+            <select id="foodType" name="type" required>
+                <option value="" disabled selected>Select food Type</option>
+                <option value="common">Common</option>
+                <option value="branded">Branded</option>
+            </select>
+            <input id="searchButton" type="submit" value="Search">
+        </form>
+    </div>
+</section>
+
+    <section class="searchResult">
+        <div class="container">
+                
+            
+                <% if(locals.result){  %>    
+                    <h2>Pick the <%= queriedFood %> from below</h2>
+
+                        <% if(result.length == 0){ %>
+                            <div id="noResult">
+                                <p>No Results found!! </p>
+                            </div>
+                        <% }else{ %>
+                            <div class="foodResult">
+                            <% result.forEach( (item) => {  %>
+                                <div class="foodItem">
+                                    <img src=<%= item.photo.thumb %> alt=<%= queriedFood %> width="30" height="30">
+                                    <% var roote= "/getNutrients/"+item.food_name %>
+                                    <div class="foodButton">
+                                        <form method="post" >
+                                            <input type="submit" formaction=<%=roote%> value=<%= item.food_name[0].toUpperCase()+item.food_name.slice(1)%>>
+                                        </form>
+                                    </div>
+                                    
+                                </div>
+                            
+                        <% })} }%>
+                            </div>
+                    
+                    
+
+        </div>
+    </section>
+
+
+    <section class="content">
+        <div class="container floating">
+            <img src="images/food-group.jpg" alt="food group" height="200" width="200">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi soluta maiores quia nesciunt assumenda quis inventore ipsum voluptates in ipsam. Repudiandae temporibus cupiditate adipisci voluptatibus, quos voluptas provident voluptatum rem?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi soluta maiores quia nesciunt assumenda quis inventore ipsum voluptates in ipsam. Repudiandae temporibus cupiditate adipisci voluptatibus, quos voluptas provident voluptatum rem?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi soluta maiores quia nesciunt assumenda quis inventore ipsum voluptates in ipsam. Repudiandae temporibus cupiditate adipisci voluptatibus, quos voluptas provident voluptatum rem?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi soluta maiores quia nesciunt assumenda quis inventore ipsum voluptates in ipsam. Repudiandae temporibus cupiditate adipisci voluptatibus, quos voluptas provident voluptatum rem?</p>
+        </div>
+    </section>
+
+
+    <%- include("partials/lower.ejs") %>

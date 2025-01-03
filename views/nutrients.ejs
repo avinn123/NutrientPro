@@ -1,0 +1,54 @@
+<%- include('./partials/upper.ejs') %>
+    <header class="foodImage">
+        <h1>Results for <%= queriedFood %></h1>
+        <div class="container">
+            <% if(locals.image){ %>
+                <img src=<%= image %> alt=<%= queriedFood %>>
+            <% } %>
+            
+        </div>
+    </header>
+
+    <section class="results">
+        <div class="container">
+
+                <!-- <h3>Inside results</h3> -->
+                <div class="nutrientResults">
+                    <% if(locals.err){ %>
+                        <p> <%= err %><%= queriedFood %></p>
+                    <%}%>
+                    <% if(locals.output) {%>
+                        <table>
+                            <tr>
+                            <th>Nutrient</th>
+                            <th>Value</th>
+                            </tr>
+                        
+                            <% for(i=0;i<output.length;i++) {%>
+                                
+                                    <tr>
+                                        <td>
+                                            <div class="nutrientName">
+                                                <p><%= output[i]['nutriName'] %>  </p>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="nutrientValue">
+                                                <p><%= output[i]['nutriValue'] %></p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                
+                            <% } %>
+                        </table>
+                    <% } %>
+                    
+                
+                </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<%- include('./partials/lower.ejs') %>

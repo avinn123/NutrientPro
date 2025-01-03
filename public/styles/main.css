@@ -1,0 +1,286 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+body{
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color:azure;
+    
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+
+.navbar{
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.navbar .container{
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    height: 100%;
+}
+
+.logo{
+    color: green;
+    font-size: 3em;
+}
+
+ul{
+    display: flex;
+}
+
+
+li{
+    list-style: none;
+    margin: 2px;
+    padding: 2px;
+}
+
+ a{
+    text-decoration: none;
+    color: teal;
+    font-size: 1.2em;
+    padding: 2px;
+    margin-right: 0;
+}
+
+a:hover{
+    color: green;
+    /* background-color: rebeccapurple; */
+}
+
+
+header .container{
+    font-family:Arial, Helvetica, sans-serif;
+    /* background-color: antiquewhite; */
+    margin-top: 10px;
+    font-size: 1.5em;
+}
+
+.card .container{
+    margin-top: 20px;
+}
+.card .container img{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 2px solid #555;
+    border-radius: 5px;
+
+}
+
+.content .container{
+    margin-top: 40px;
+}
+
+.content .floating img{
+    float: left;
+    margin-right: 10px;
+    border-radius: 50%;
+
+}
+
+.content .floating p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+
+.input-form .container{
+    text-align: center;
+    font-size: 3rem;
+    margin: 60px auto;
+    /* height:400px; */
+
+}
+
+.input-form .container #searchButton, #searchItem, #foodType{
+    font-size: large;
+}
+
+#select {
+    font: optional;
+    
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 10px;
+    color: green;
+}
+
+
+.foodResult{
+    font-family:cursive;
+    font-size: 0.8rem;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; */
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin:30px;
+}
+
+
+
+.foodItem{
+    /* border: #555 dotted 1px; */
+    /* width:320px; */
+    /* font-size: 1%; */
+    height:auto;
+    /* background: rgba(0,255,0,0.2); */
+    text-align:end;
+    margin-top: 2px;
+    padding: 2px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    backface-visibility: 50%;
+}
+
+.foodItem:nth-child(even){
+    background-color: rgba(0,125,125,0.2);
+    z-index: 2;
+}
+
+.foodItem:nth-child(odd){
+    background-color: rgba(0,255,0,0.2);
+}
+
+.foodItem img{
+    border-radius: 50%;
+    border: teal solid 0.1px;
+    z-index: 1;
+    /* transition: transform 1s ease-in-out; */
+}
+
+.foodItem img:hover{
+   
+    transform: scale(2);
+    z-index: 2;
+}
+
+.foodButton{
+    height:100%;
+    width:50%;
+   
+
+}
+.foodButton form{
+    height: 100%;
+    width: 100%;
+}
+
+.foodButton form input{
+    border: solid 1px #555;
+    text-align: center;
+    border-radius: 2px;
+    color: green;
+    font-size: 0.7rem;
+    font-weight: 700;
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+}
+
+/* .foodItem .foodButton:nth-child(odd){
+    background-color: rgba(0,125,125,0.2);
+}
+
+.foodItem .foodButton:nth-child(even){
+    background-color: rgba(0,255,0,0.2);
+} */
+
+
+.foodItem:hover .foodButton form input{
+    font-size: 0.8rem;
+}
+
+
+
+#noResult{
+    /* display: flex; */
+    text-align: center;
+    /* justify-content: center; */
+    font-size: 24px;
+    color: red;
+}
+
+/* NUTRIENT EJS STYLING*/
+.foodImage{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.foodImage .container img{
+    width:100%;
+    height: 400px;
+    border-radius: 15px;
+    border:1px solid green;
+}
+.nutrientResults{
+    display: flex;
+    justify-content: center;
+}
+
+.nutrientResults table{
+    border:1px dotted #555;
+    padding:5px;
+    margin:20px auto;
+    border-radius: 15px;
+}
+
+.nutrientResults tr td{
+    margin: 2px;
+    padding: 2px;
+    /* text-align: center; */
+}
+
+.nutrientResults tr:nth-child(even){
+    background-color: white;
+}
+
+.nutrientResults tr:nth-child(odd)
+{
+    background-color: wheat;
+}
+
+
+
+
+
+
+
+
+
+.footer .container{
+    display: flex;
+    font-size: 20px;
+    background-color: antiquewhite;
+    text-align: center;
+    color: #555;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
