@@ -35,7 +35,8 @@
                 
             
                 <% if(locals.result){  %>    
-                    <h2>Pick the <%= queriedFood %> from below</h2>
+
+                    <h2>Search Results for <%= queriedFood %></h2>
 
                         <% if(result.length == 0){ %>
                             <div id="noResult">
@@ -46,10 +47,12 @@
                             <% result.forEach( (item) => {  %>
                                 <div class="foodItem">
                                     <img src=<%= item.photo.thumb %> alt=<%= queriedFood %> width="30" height="30">
-                                    <% var roote= "/getNutrients/"+item.food_name %>
+                                    <% let roote= encodeURI(`/getNutrients/${item.food_name}`) %>
+                                    <%  %>
                                     <div class="foodButton">
                                         <form method="post" >
-                                            <input type="submit" formaction=<%=roote%> value=<%= item.food_name[0].toUpperCase()+item.food_name.slice(1)%>>
+                                            <input type="submit" formaction=<%=roote%> value="<%= item['food_name'][0].toUpperCase()+item.food_name.slice(1)%>">
+                                            <!-- <input type="submit" formaction="" value= "hello world"> -->
                                         </form>
                                     </div>
                                     

@@ -64,6 +64,7 @@ app.post('/getNutrients/:searchQuery', async (req,res) => {
         const result = response.data; //response.data;
         const nutrientsArray = result.foods[0].full_nutrients;
         const foodImage = result.foods[0].photo.highres;
+        const foodThumb = result.foods[0].photo.thumb;
         var nutrientValues = [];
         
         let i =0;
@@ -93,7 +94,7 @@ app.post('/getNutrients/:searchQuery', async (req,res) => {
         for(i=0;i<10;i++){
             console.log(nutrientValues[i].nutriName,nutrientValues[i].nutriValue);
         }
-        res.render("nutrients.ejs", { queriedFood:foodName,image:foodImage,output:nutrientValues});
+        res.render("nutrients.ejs", { queriedFood:foodName,image:foodImage,output:nutrientValues,thumb:foodThumb});
       } catch (error) {
         console.error("Server side error!", error.message);
         res.render("nutrients.ejs",{queriedFood:foodName,err:"No results found for "});

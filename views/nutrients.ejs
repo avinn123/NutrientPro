@@ -4,6 +4,8 @@
         <div class="container">
             <% if(locals.image){ %>
                 <img src=<%= image %> alt=<%= queriedFood %>>
+            <% } else{ %>
+                <img src=<%= thumb %> alt=" image not found">
             <% } %>
             
         </div>
